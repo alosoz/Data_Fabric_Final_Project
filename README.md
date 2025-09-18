@@ -1,48 +1,55 @@
 # Data_Fabric_Final_Project
 
-🎬 Senaryo: “HappyBooking – Veri Mühendisliği Görevi”
+# 🎬 HappyBooking – Veri Mühendisliği Görevi
 
-HappyBooking, farklı kaynaklardan gelen rezervasyon verilerini düzenleyip yönetime raporlamak isteyen bir turizm şirketi.
-Şirketin hedefi: ham veriyi toplayıp işlemek, raporlamak ve canlı rezervasyon trendlerini takip etmek.
+HappyBooking, farklı kaynaklardan gelen rezervasyon verilerini düzenleyip yönetime raporlamak isteyen bir turizm şirketidir.  
 
-Amaç:
+## 🎯 Amaç
+- Farklı kaynaklardan gelen veriyi (dosya, API, stream) **toplamak**
+- Bu verileri **temizleyip düzenlemek**
+- Analiz için **hazır hale getirmek**
+- Yönetim için **rapor oluşturmak**
 
-Farklı kaynaklardan gelen veriyi (dosya, API, stream) toplamak
+Şirket sizden bir **data pipeline** kurmanızı istiyor.
 
-Bu verileri temizleyip düzenlemek
+---
 
-Analiz için hazır hale getirmek
+## 🧩 Kullanılabilecek Araçlar
 
-Yönetim için rapor oluşturmak
+**Zorunlu:**
+- Fabric Eventstream / Lakehouse katmanları  
+- GitHub Actions (CI/CD)  
+- Docker (stream simulator için)  
 
-Şirket sizden bir data pipeline kurmanızı istiyor.
+**İsteğe bağlı:**
+- DBT (Gold dönüşümleri için)  
+- Great Expectations (Data Quality için)  
 
-🧩 Kullanabileceğiniz bazı araçlar:
+---
 
-Zorunlu: Fabric Eventstream / Lakehouse katmanları
+## 📌 Görevler
 
-Zorunlu: GitHub Actions (CI/CD)
+1. **Veri toplama**  
+   - Dosya, API ve stream verilerini şirket sistemine alın.  
 
-Zorunlu: Docker (stream simulator için)
+2. **Veri işleme**  
+   - Null değerleri doldurun, duplicate kayıtları kaldırın, tarih formatlarını normalize edin.  
 
-İsteğe bağlı: DBT (Gold dönüşümleri için)
+3. **Raporlama**  
+   - Yönetim için KPI’lar ve görselleştirmeler içeren bir dashboard oluşturun.  
 
-İsteğe bağlı: Great Expectations (data quality için)
+4. **(İsteğe bağlı)**  
+   - Verinizin kalitesini test edin (Great Expectations)  
+   - Gold dönüşümlerini DBT ile yönetin  
 
-📌 Görev
+---
 
-Veri toplama: Ham veriyi şirket sistemine alın. (dosya + stream)
+## 👉 Sizden Beklenen
+- Hangi araçları nerede kullanacağınızı belirlemek  
+- Bir veri akışı (pipeline) tasarlamak  
+- Çözümünüzü kısaca açıklamak  
 
-Veri işleme: Verileri temizleyin, düzenleyin.
+---
 
-Raporlama: Yönetimin ihtiyacını karşılayacak dashboard oluşturun.
+💡 İpucu: Aşağıdaki boş şablonu kullanarak kendi pipeline akışınızı çizebilirsiniz:
 
-(İsteğe bağlı) Verinizin kalitesini test edin veya dönüşümleri DBT ile yönetin.
-
-👉 Sizden beklenen:
-
-Hangi araçları nerede kullanacağınızı belirlemek
-
-Bir veri akışı (pipeline) tasarlamak
-
-Çözümünüzü kısaca açıklamak
