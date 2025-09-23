@@ -49,7 +49,4 @@ HappyBooking, farklı kaynaklardan gelen rezervasyon verilerini düzenleyip yön
 - Bir veri akışı (pipeline) tasarlamak  
 - Çözümünüzü kısaca açıklamak  
 
----
-
-💡 İpucu: Aşağıdaki boş şablonu kullanarak kendi pipeline akışınızı çizebilirsiniz:
 
