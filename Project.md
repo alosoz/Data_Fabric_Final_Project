@@ -1,159 +1,78 @@
-# 🎯 Gorevler 
+# 📘 HappyBooking – Data Engineering Final Projesi (Nihai Doküman)
 
-1. Docker (Stream Simulator) – canlı rezervasyon olaylarını üretmek için.
+## Microsoft Fabric + Modern Data Stack
 
-2. DBT (Gold Transformations) – KPI tablolarını modellemek için.
+Bu doküman, öğrencilerin hem batch hem streaming veri kaynaklarını kullanarak Microsoft Fabric üzerinde Bronze → Silver → Gold mimarisini kurduğu, veri kalite kontrolü, orkestrasyon ve CI/CD gibi gelişmiş kavramları uyguladığı bir Data Engineering projesi oluşturması için hazırlanmıştır.
 
-3. Great Expectations (Data Quality) – Silver/Gold katmanında veri testleri için.
- 
+# 🎬 1. Proje Tanımı
 
-- Airflow (DAG vs Fabric Pipeline) – orkestrasyon karşılaştırması.
+HappyBooking, otel rezervasyon verilerini farklı sistemlerden toplamak istemektedir. Öğrencilerden bu verileri:
 
-- GitHub Actions (CI/CD) – pipeline & notebook versiyon kontrolü.
+- Batch (Kaggle)
 
----
+- Streaming (Docker → Eventstream)
 
-# 🏨 Booking.com Esinli Data Engineering Projesi (Fabric + Advanced Tools)
-##📌 Proje Amacı
+- API (weather + currency)
 
-HappyBooking, otel rezervasyon verilerini batch + stream olarak toplamak ve bunları Microsoft Fabric üzerinde işleyerek analitik dashboard’lar üretmek istiyor.
+şeklinde ingest edip Fabric üzerinde işlenebilir hale getirmesi beklenir.
 
-Bu projede öğrenciler, gerçek dünyaya yakın bir senaryoda:
+Amaç:
+Bronze → Silver → Gold katmanlı modern veri platformu kurmak ve yönetim için analitik dashboard üretmek.
 
-- Bronze–Silver–Gold (Delta Lake) mimarisi
+# 🎯 2. Projenin Amaçları
 
-- Streaming + Batch entegrasyonu
+- Farklı kaynaklardan gelen veriyi ingest etmek (batch + stream + API)
 
-- Veri kalite, orkestrasyon, CI/CD gibi modern uygulamalar
+- Veriyi normalize etmek ve temizlemek
 
-ile uçtan uca bir Data Engineering Pipeline geliştirecek.
+- Veri kalitesini doğrulamak
 
----
+- Gold katmanında iş kuralları oluşturmak
 
-# ✅ Başarı Ölçütleri
+- Power BI ile analiz oluşturmak
 
-- Uçtan uca pipeline çalışır (batch + stream).
+- Fabric Workflow + GitHub CI/CD ile modern veri mühendisliği pratiğini uygulamak
 
-- Docker stream simulator doğru şekilde Eventstream’e veri gönderir.
+# 🧩 3. Kullanılacak Araçlar
 
-- DBT modelleri Gold tabakasında KPI tablolarını üretir.
+Microsoft Fabric (Lakehouse, Warehouse, Eventstream, Notebook, Workflow, Power BI)
 
-- Great Expectations testleri veri kalitesini garanti eder.
- 
+Docker (stream producer)
 
-- Airflow DAG ile Fabric Pipeline karşılaştırması yapılır. 
+DBT (Gold modelleri)
 
-- GitHub Actions ile CI/CD uygulanır. 
+Great Expectations (data quality)
 
-- Power BI dashboard ile analizler tamamlanır.
+Airflow (DAG → Fabric Pipeline karşılaştırması)
 
----
+GitHub Actions (CI/CD)
 
-# 🎯 Projeden Ne Bekleniyor?
+# 🗂 4. Kullanılacak Veri Setleri
+## Batch Veri (Kaggle – Hotel Booking Demand)
 
-##Teknik Hedefler
+- hotel_raw.csv dosyası ikiye bölünecek:
 
-- Microsoft Fabric servislerini kullanarak batch + streaming pipeline kurmak.
+- hotel_raw_batch.csv (%70 – tarihsel batch veri)
 
-- Bronze → Silver → Gold dönüşümlerini PySpark + DBT ile uygulamak.
+- hotel_raw_stream.csv (%30 – gerçek zamanlı simülasyon)
 
-- Veri kalitesini Great Expectations ile doğrulamak.
+## Streaming Veri (Docker → Eventstream)
 
-- Docker tabanlı stream generator çalıştırmak.
+- stream_producer.py → satır satır rezervasyon akışı gönderir.
 
-- Opsiyonel: Airflow & GitHub Actions entegrasyonu.
+## API Zenginleştirme
 
-##Başarı Kriterleri
+- Weather API (Open-Meteo vb.)
 
-- Katmanlı mimari eksiksiz çalışmalı.
+- Currency API (ECB / ExchangeRate)
 
-- Data Quality testleri %100 geçmeli.
-
-- Power BI dashboard’ları KPI’ları göstermeli.
-
-- Kod ve pipeline’lar versiyon kontrolünde olmalı.
-
----
-
-# 🗂️ Veri Setleri
-
-- Batch: Hotel Booking Demand (Kaggle) + TripAdvisor Reviews.
-
- Amaç: Kaggle’dan indirilen hotel_raw.csv dosyasının geçmiş verilere karşılık gelen kısmını Bronze’a aktarmak.
-
-Yapılacaklar
-
-Kaggle’dan hotel_raw.csv dosyasını indirin.
-
-Veriyi ikiye ayırın:
-
-hotel_raw_batch.csv → geçmiş batch veri (%70 önerilir)
-
-hotel_raw_stream.csv → streaming için kullanılacak kısmı (%30 önerilir)
-
-hotel_raw_batch.csv dosyasını Notebook ile Bronze Lakehouse katmanına ingest edin.
-
-Tarih formatlarını normalleştirin.
-
-Veri kaynak dosyalarını versiyonlayın.
-
-Bronze’a Delta formatında yazın.
-
-- Stream: Docker içinde çalışan Python script → Eventstream.
-
-Docker Stream Simulator ile Streaming Verisi Üretme
-
-  Amaç: hotel_raw_stream.csv dosyasını gerçek zamanlı bir rezervasyon akışı gibi Eventstream’e göndermek.
-
-Yapılacaklar
-
-Docker klasöründeki Dockerfile ve stream_producer.py dosyalarını inceleyin.
-
-Container’ı başlatın.
-
-Script, hotel_raw_stream.csv verisini satır satır Eventstream’e gönderecek.
-
-Eventstream üzerindeki data flow’u kontrol edin.
-
-Eventstream’den Streaming Verisini Bronze’a Yazma
-
-Amaç: Eventstream’den gelen canlı veriyi Bronze tabakasına kaydetmek.
-
-Yapılacaklar
-
-Eventstream → Lakehouse mapping oluşturun.
-
-Auto-create table özelliğini aktif edin.
-
-Streaming tablosunun Bronze’ta oluştuğunu doğrulayın.
-
-- Zenginleştirme: World Cities, Weather snapshot, kur bilgileri.
-
-  API Verilerinin Bronze’a Alınması (Weather + Currency)
-
-Amaç: Zenginleştirme için harici API verilerini projeye dahil etmek.
-
-Yapılacaklar
-
-Ücretsiz API’lerden veri çekilecek:
-
-Weather API (Open-Meteo vb.)
-
-Currency API (ExchangeRate API veya ECB RSS)
-
-API verilerini Bronze’a kaydedin.
-
-Tarih & şehir kolonlarını normalize edin.
-
----
-
-🏗️ Hedef Mimari
+# 🧱 5. Hedef Mimari
 Docker Stream Simulator (Python)
         |
         v
-Fabric Eventstream  ---> KQL DB (streaming analytics)
+Fabric Eventstream  ---> KQL DB (Streaming analytics)
         |
-Batch Data (CSV, JSON, API)
+Batch Data (CSV, API)
         |
         v
 Fabric Lakehouse (Bronze)
@@ -165,53 +84,21 @@ Fabric Notebook (PySpark) + Great Expectations
 Fabric Lakehouse (Silver - Cleaned)
         |
         v
-DBT Models (Gold Transformations)
+DBT (Gold Transformations)
         |
         v
-Fabric Warehouse / Gold Lakehouse
+Warehouse / Gold Lakehouse
         |
    +----+----+
    |         |
-Power BI   Synapse (opsiyonel query layer)
+Power BI   (Opsiyonel Synapse)
 
----
-
-# ☁️ Kullanılacak Servis & Tool’lar
-
-## Microsoft Fabric İçinde
-
-- Lakehouse / OneLake – Batch & streaming depolama
-
-- Eventstream – Stream ingest
-
-- KQL DB – Streaming analytics
-
-- Notebook (PySpark) – Transformation + Data Quality integration
-
-- Warehouse – SQL tabanlı business layer
-
-- Power BI – Dashboard
-
-## Ek Zorunlu Tool’lar
-
-- Docker – Stream simulator
-
-- DBT – Gold layer transformations (fact_booking, dim_city, KPI hesaplama)
-
-- Great Expectations – Data Quality testleri (Null, duplicate, schema)
- 
-
-- Airflow – Orkestrasyon (Fabric Pipeline alternatifi)
-
-- GitHub Actions – CI/CD (Notebook + Pipeline JSON deployment)
-
----
-
-# 📁 Repo Yapısı
+# 🗂️ 6. Repo Yapısı
 repo-root/
-├─ infrastructure/ (IaC, opsiyonel)
-├─ data/ (örnek CSV)
-├─ docker/ (stream simulator)
+├─ data/
+│   ├─ hotel_raw_batch.csv
+│   ├─ hotel_raw_stream.csv
+├─ docker/
 │   ├─ Dockerfile
 │   ├─ stream_producer.py
 ├─ notebooks/
@@ -219,66 +106,208 @@ repo-root/
 │   ├─ 02_stream_to_bronze.py
 │   ├─ 03_silver_transformations.py
 │   ├─ 04_gold_dbt_models/
-│   │   ├─ fact_booking.sql
-│   │   ├─ dim_city.sql
-│   │   ├─ kpi_revenue.sql
-│   └─ 05_quality_tests_ge.py
-├─ dbt_project/ (DBT configs & models)
-├─ pipelines/ (Fabric pipeline JSON + opsiyonel Airflow DAGs)
-├─ tests/ (great_expectations, pytest)
-├─ .github/workflows/ (opsiyonel CI/CD)
-└─ docs/ (readme, runbooks, diagrams)
+│   ├─ 05_quality_tests_ge.py
+├─ dbt_project/
+├─ pipelines/
+├─ tests/
+├─ .github/workflows/
+└─ docs/
 
----
+# 🔄 7. Proje Adımları (Öğrenci Görevleri)
+## ✅ Adım 1 — Batch Verisini Bronze’a Alın
 
-# 🔄 Adımlar
+Amaç: Kaggle hotel_raw_batch.csv dosyasını Bronze katmanına ingest etmek.
 
-1. Batch Ingestion (Fabric) – CSV/JSON verilerini Bronze’a al.
+Yapılacaklar:
 
-2. Stream Simulator (Docker) – Eventstream’e canlı veri gönder.
+- Kaggle’dan veri indirilir.
 
-3. Bronze → Silver (PySpark) – Temizleme, normalize etme.
+- hotel_raw.csv → batch + stream olarak ikiye bölünür.
 
-4. Data Quality (Great Expectations) – Silver verilerini test et.
+- Bronze’a yazılır (Delta formatı).
 
-5. Silver → Gold (DBT) – Fact/dim tablolar, KPI hesaplamaları.
+- Tarih formatları normalize edilir.
 
-6. Warehouse + Power BI – Dashboard hazırlama.
+- Dosya versiyonlama yapılır.
 
-7. Airflow DAG vs Fabric Pipeline karşılaştırması. 
+## ✅ Adım 2 — Docker Stream Simulator Çalıştırma
 
-8. GitHub Actions ile CI/CD. 
+Amaç: hotel_raw_stream.csv içindeki kayıtları gerçek zamanlı event olarak Eventstream’e göndermek.
 
----
+Yapılacaklar:
 
-# 📊 Çıktılar
+- Dockerfile ve stream_producer.py incelenir.
 
-- Çalışan Docker simulator (stream).
+- Container ayağa kaldırılır.
 
-- Bronze, Silver, Gold katman tabloları.
+- Eventler Eventstream’e akar.
 
-- DBT modelleri ve çalıştırma çıktıları.
+- Flow kontrol edilir.
 
-- Great Expectations raporları.
+## ✅ Adım 3 — Streaming Veriyi Bronze’a Yazma
 
-- Power BI dashboard:
+Amaç: Eventstream → Bronze mapping oluşturmak.
 
-  - Rezervasyon sayısı (trend, şehir bazlı)
+Yapılacaklar:
 
-  - İptal oranı
+- Eventstream mapping yapılır.
 
-  - Gelir KPI’ları
+- Auto-create tables açılır.
 
-  - Streaming trendleri (KQL DB’den)
+- Streaming tablosunun oluştuğu doğrulanır.
 
----
+## ✅ Adım 4 — API Verilerinin Bronze’a Alınması
 
-# 📦 Beklenen Sonuç
+Amaç: Weather + Currency API verilerini ingest etmek.
 
-- Uçtan uca çalışan Fabric Data Engineering Pipeline.
+Yapılacaklar:
 
-- Gerçek zamanlı + batch veri entegrasyonu.
+- API çağrıları yapılır.
 
-- Modern data stack tecrübeleri: Docker, DBT, Data Quality.
+- JSON → Bronze’a yazılır.
 
-- Opsiyonel olarak orkestrasyon & CI/CD yetkinliği.
+- Tarih & şehir alanları normalize edilir.
+
+## ✅ Adım 5 — Silver Transformations (Temizleme)
+
+Amaç: Bronze içindeki raw veriyi temiz ve analize hazır hale getirmek.
+
+Temizlikler:
+
+- Sadece kritik kolonlarda NULL temizliği
+
+- Duplicate’lerin kaldırılması
+
+- Tarih formatı standardizasyonu
+
+- Veri tiplerinin düzeltilmesi
+
+## ✅ Adım 6 — Data Quality (Great Expectations)
+
+Amaç: Silver tabakasının kalitesini test etmek.
+
+Testler:
+
+- not_null
+
+- unique
+
+- schema doğrulama
+
+- date format validation
+
+Çıktı: GE raporu (artefact olarak saklanacak)
+
+## ✅ Adım 7 — Gold Katmanı (DBT)
+
+Amaç: İş kuralları & KPI modelleri üretmek.
+
+Modeller:
+
+- fact_booking
+
+- dim_city
+
+- kpi_revenue
+
+Her modelde:
+
+- tests: unique, not_null
+
+- documentation
+
+- lineage graph
+
+## ✅ Adım 8 — Dashboard (Power BI)
+
+Dashboard İçeriği:
+
+- Rezervasyon trendleri
+
+- Şehir bazlı analiz
+
+- Gelir KPI’ları
+
+- KQL DB’den canlı stream grafiği (opsiyonel)
+
+## ✅ Adım 9 — Fabric Workflow Oluşturma & Otomasyon
+
+Amaç: Tüm pipeline adımlarının otomatik çalışması.
+
+Workflow içeriği:
+
+1. Batch ingest notebook
+
+2. Stream mapping kontrol
+
+3. Silver dönüşümleri
+
+4. GE kalite testleri
+
+5. DBT modelleri
+
+6. Warehouse refresh
+
+7. Power BI dataset refresh
+
+Zamanlayıcı: Günlük / saatlik
+
+## ✅ Adım 10 — GitHub Kullanımı & CI/CD
+
+Amaç: Kod versiyonlama + otomasyon.
+
+Yapılacaklar:
+
+- Git repo oluşturulur.
+
+- Fabric notebook’lar Git’e bağlanır.
+
+- Aşağıdaki Workflow oluşturulur:
+
+PR açılınca:
+
+- GE testleri çalışır
+
+- Pytest çalışır
+
+- DBT testleri çalışır
+
+Merge sonrası:
+
+- DBT modelleri CI pipeline’da build edilir
+
+- (Opsiyonel) Fabric REST API ile deploy yapılır
+
+Branch Strategy:
+
+- main → production
+
+- dev → development
+
+# 📊 8. Proje Çıktıları
+
+Batch + stream + API kaynaklı Bronze verisi
+
+Silver (temizlenmiş) veri
+
+Gold (DBT) fact & dimension & KPI tabloları
+
+GE kalite raporu
+
+Power BI dashboard
+
+Workflow + GitHub Actions CI/CD
+
+Docker stream simulator
+
+📦 9. Beklenen Sonuç
+
+Öğrenci proje sonunda:
+
+Modern veri mühendisliği mimarisini uçtan uca kurmuş olur.
+
+Batch + streaming entegrasyonunu anlar.
+
+Data Quality, DBT, Workflow, CI/CD gibi ileri seviye kavramlarda uygulama yapar.
+
+Microsoft Fabric'i gerçek bir senaryoda deneyimler.
