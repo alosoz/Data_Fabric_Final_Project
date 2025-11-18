@@ -1,4 +1,4 @@
-# 📘 HappyBooking – Data Engineering Final Projesi (Nihai Doküman)
+# 📘 HappyBooking – Data Engineering Final Projesi
 
 ## Microsoft Fabric + Modern Data Stack
 
@@ -35,17 +35,17 @@ Bronze → Silver → Gold katmanlı modern veri platformu kurmak ve yönetim i�
 
 # 🧩 3. Kullanılacak Araçlar
 
-Microsoft Fabric (Lakehouse, Warehouse, Eventstream, Notebook, Workflow, Power BI)
+- Microsoft Fabric (Lakehouse, Warehouse, Eventstream, Notebook, Workflow, Power BI)
 
-Docker (stream producer)
+- Docker (stream producer)
 
-DBT (Gold modelleri)
+- DBT (Gold modelleri)
 
-Great Expectations (data quality)
+- Great Expectations (data quality)
 
-Airflow (DAG → Fabric Pipeline karşılaştırması)
+- Airflow (DAG → Fabric Pipeline karşılaştırması)
 
-GitHub Actions (CI/CD)
+- GitHub Actions (CI/CD)
 
 # 🗂 4. Kullanılacak Veri Setleri
 ## Batch Veri (Kaggle – Hotel Booking Demand)
@@ -286,28 +286,28 @@ Branch Strategy:
 
 # 📊 8. Proje Çıktıları
 
-Batch + stream + API kaynaklı Bronze verisi
+- Batch + stream + API kaynaklı Bronze verisi
 
-Silver (temizlenmiş) veri
+- Silver (temizlenmiş) veri
 
-Gold (DBT) fact & dimension & KPI tabloları
+- Gold (DBT) fact & dimension & KPI tabloları
 
-GE kalite raporu
+- GE kalite raporu
 
-Power BI dashboard
+- Power BI dashboard
 
-Workflow + GitHub Actions CI/CD
+- Workflow + GitHub Actions CI/CD
 
-Docker stream simulator
+- Docker stream simulator
 
-📦 9. Beklenen Sonuç
+# 📦 9. Beklenen Sonuç
 
 Öğrenci proje sonunda:
 
-Modern veri mühendisliği mimarisini uçtan uca kurmuş olur.
+- Modern veri mühendisliği mimarisini uçtan uca kurmuş olur.
 
-Batch + streaming entegrasyonunu anlar.
+- Batch + streaming entegrasyonunu anlar.
 
-Data Quality, DBT, Workflow, CI/CD gibi ileri seviye kavramlarda uygulama yapar.
+- Data Quality, DBT, Workflow, CI/CD gibi ileri seviye kavramlarda uygulama yapar.
 
-Microsoft Fabric'i gerçek bir senaryoda deneyimler.
+- Microsoft Fabric'i gerçek bir senaryoda deneyimler.
