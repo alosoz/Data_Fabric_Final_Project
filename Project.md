@@ -79,9 +79,71 @@ ile uçtan uca bir Data Engineering Pipeline geliştirecek.
 
 - Batch: Hotel Booking Demand (Kaggle) + TripAdvisor Reviews.
 
+ Amaç: Kaggle’dan indirilen hotel_raw.csv dosyasının geçmiş verilere karşılık gelen kısmını Bronze’a aktarmak.
+
+Yapılacaklar
+
+Kaggle’dan hotel_raw.csv dosyasını indirin.
+
+Veriyi ikiye ayırın:
+
+hotel_raw_batch.csv → geçmiş batch veri (%70 önerilir)
+
+hotel_raw_stream.csv → streaming için kullanılacak kısmı (%30 önerilir)
+
+hotel_raw_batch.csv dosyasını Notebook ile Bronze Lakehouse katmanına ingest edin.
+
+Tarih formatlarını normalleştirin.
+
+Veri kaynak dosyalarını versiyonlayın.
+
+Bronze’a Delta formatında yazın.
+
 - Stream: Docker içinde çalışan Python script → Eventstream.
 
+Docker Stream Simulator ile Streaming Verisi Üretme
+
+  Amaç: hotel_raw_stream.csv dosyasını gerçek zamanlı bir rezervasyon akışı gibi Eventstream’e göndermek.
+
+Yapılacaklar
+
+Docker klasöründeki Dockerfile ve stream_producer.py dosyalarını inceleyin.
+
+Container’ı başlatın.
+
+Script, hotel_raw_stream.csv verisini satır satır Eventstream’e gönderecek.
+
+Eventstream üzerindeki data flow’u kontrol edin.
+
+Eventstream’den Streaming Verisini Bronze’a Yazma
+
+Amaç: Eventstream’den gelen canlı veriyi Bronze tabakasına kaydetmek.
+
+Yapılacaklar
+
+Eventstream → Lakehouse mapping oluşturun.
+
+Auto-create table özelliğini aktif edin.
+
+Streaming tablosunun Bronze’ta oluştuğunu doğrulayın.
+
 - Zenginleştirme: World Cities, Weather snapshot, kur bilgileri.
+
+  API Verilerinin Bronze’a Alınması (Weather + Currency)
+
+Amaç: Zenginleştirme için harici API verilerini projeye dahil etmek.
+
+Yapılacaklar
+
+Ücretsiz API’lerden veri çekilecek:
+
+Weather API (Open-Meteo vb.)
+
+Currency API (ExchangeRate API veya ECB RSS)
+
+API verilerini Bronze’a kaydedin.
+
+Tarih & şehir kolonlarını normalize edin.
 
 ---
 
