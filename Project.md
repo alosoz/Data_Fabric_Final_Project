@@ -177,10 +177,18 @@ Temizlikler:
 - Sadece kritik kolonlarda NULL temizliği
 
 - Duplicate’lerin kaldırılması
+  
+- Veri Tipi Standardizasyonu
 
 - Tarih formatı standardizasyonu
 
-- Veri tiplerinin düzeltilmesi
+- Yazım ve Karakter Bozukluklarının Düzeltilmesi
+
+- Mantığa Aykırı Değerlerin Düzeltilmesi / Filtrelenmesi
+
+- Kategorizasyon & Standardizasyon
+
+- Outlier Analizi
 
 ## ✅ Adım 6 — Data Quality (Great Expectations)
 
