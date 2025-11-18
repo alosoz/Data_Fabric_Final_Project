@@ -1,12 +1,11 @@
-# 🎯 Zorunlu (tüm öğrenciler kullanacak)
+# 🎯 Gorevler 
 
 1. Docker (Stream Simulator) – canlı rezervasyon olaylarını üretmek için.
 
 2. DBT (Gold Transformations) – KPI tablolarını modellemek için.
 
 3. Great Expectations (Data Quality) – Silver/Gold katmanında veri testleri için.
-
-# 🔄 Opsiyonel (isteğe bağlı, ileri seviye)
+ 
 
 - Airflow (DAG vs Fabric Pipeline) – orkestrasyon karşılaştırması.
 
@@ -40,12 +39,11 @@ ile uçtan uca bir Data Engineering Pipeline geliştirecek.
 - DBT modelleri Gold tabakasında KPI tablolarını üretir.
 
 - Great Expectations testleri veri kalitesini garanti eder.
+ 
 
-- Opsiyonel olarak:
+- Airflow DAG ile Fabric Pipeline karşılaştırması yapılır. 
 
-  - Airflow DAG ile Fabric Pipeline karşılaştırması yapılır.
-
-  - GitHub Actions ile CI/CD uygulanır.
+- GitHub Actions ile CI/CD uygulanır. 
 
 - Power BI dashboard ile analizler tamamlanır.
 
@@ -139,8 +137,7 @@ Power BI   Synapse (opsiyonel query layer)
 - DBT – Gold layer transformations (fact_booking, dim_city, KPI hesaplama)
 
 - Great Expectations – Data Quality testleri (Null, duplicate, schema)
-
-## Opsiyonel Tool’lar
+ 
 
 - Airflow – Orkestrasyon (Fabric Pipeline alternatifi)
 
@@ -186,11 +183,9 @@ repo-root/
 
 6. Warehouse + Power BI – Dashboard hazırlama.
 
-7. Opsiyonel:
+7. Airflow DAG vs Fabric Pipeline karşılaştırması. 
 
-  - Airflow DAG vs Fabric Pipeline karşılaştırması.
-
-  - GitHub Actions ile CI/CD.
+8. - GitHub Actions ile CI/CD. 
 
 ---
 
