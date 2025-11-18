@@ -247,7 +247,7 @@ repo-root/
 
 7. Airflow DAG vs Fabric Pipeline karşılaştırması. 
 
-8. - GitHub Actions ile CI/CD. 
+8. GitHub Actions ile CI/CD. 
 
 ---
 
