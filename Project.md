@@ -320,8 +320,12 @@ Branch Strategy:
 
 - Microsoft Fabric'i gerçek bir senaryoda deneyimler.
 
+---
+
   # Kaynak data linki
 
-  # proje diagrami
+
+---
+  # Proje diagrami
 
 <img width="4068" height="1760" alt="happybooking_architecture_white" src="https://github.com/user-attachments/assets/fd96d38c-e2c8-4d74-b169-a0cbc964c2dd" />
