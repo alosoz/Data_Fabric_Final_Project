@@ -324,8 +324,10 @@ Branch Strategy:
 
   # Kaynak data linki
 
+https://www.kaggle.com/datasets/aliosmanozpinar/raw-booking-data
 
 ---
   # Proje diagrami
 
-<img width="4068" height="1760" alt="happybooking_architecture_white" src="https://github.com/user-attachments/assets/fd96d38c-e2c8-4d74-b169-a0cbc964c2dd" />
+<img width="3848" height="1745" alt="happybooking_medallion" src="https://github.com/user-attachments/assets/54fcc377-068a-4df5-b5f6-d920d4a66134" />
+
